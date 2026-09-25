@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool isPowerOfTwo(int num) {
+        if(num<=0){
+            return false;
+        }
+        for(int i =0; i<=31;i++){
+            if(pow(2,i)==num){
+                return true;
+            }
+        }
+        return false;
+
+    }
+};
