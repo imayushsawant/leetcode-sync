@@ -1,15 +1,18 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        int single;
-        sort(nums.begin(), nums.end());
-        for(int i=0;i<nums.size();){
-            if(i<nums.size()-1 && nums[i]==nums[i+1]) i+=3;
-            else{
-                single=nums[i];
-                break;
+        int result = 0;
+        for(int i=0; i<32;i++){
+            int count=0;
+            for(int x : nums){
+                if((x >>i) & 1) {
+                    count++;
+                }
+            }
+            if(count % 3 == 1){
+                result=result | 1u<<i;
             }
         }
-        return single;
+        return result;
     }
 };
