@@ -8,7 +8,6 @@ public:
             answer = max(answer, sum);
             if(sum<0){
                 sum=0;
-                continue;
             }
         } 
         return answer;
